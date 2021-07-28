@@ -39,6 +39,7 @@ jobs:
             const fs = require('fs');
 
             console.log(`${{github.workspace}}`);
+            console.log(process.cwd());
             fs.readdirSync(process.cwd()).forEach(file => {
               console.log(file);
             });
