@@ -42,4 +42,4 @@ jobs:
             const script = require(scriptPath);
             script(`${{ steps.latest_version.outputs.latest_tag }}`);
             const specFile = fs.readFileSync(`./website/pages/docs/specifications/${{ steps.latest_version.outputs.latest_tag }}.md`);
-            console.log(specFile); 
+            console.log(specFile.toString()); 
