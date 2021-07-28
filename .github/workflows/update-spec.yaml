@@ -36,6 +36,10 @@ jobs:
         with:
           # require needs relative path to the script (relative to the current working directory)
           script: |
-            console.log(process.cwd());
+            const fs = require('fs');
+
+            fs.readdirSync(process.cwd()).forEach(file => {
+              console.log(file);
+            });
             // const script = require('./spec/.github/scripts/remove-toc.js');
             // script(`${{ steps.latest_version.outputs.latest_tag }}`);
