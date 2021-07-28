@@ -37,11 +37,11 @@ jobs:
           # require needs relative path to the script (relative to the current working directory)
           script: |
             const fs = require('fs');
+            const path = require('path');
 
-            console.log(`${{github.workspace}}`);
-            console.log(process.cwd());
-            fs.readdirSync('./spec/.github/scripts').forEach(file => {
-              console.log(file);
-            });
-            const script = require('./spec/.github/scripts/remove-toc');
+            const path1 = path.resolve(process.cwd(), './spec/.github/scripts/remove-toc');
+            console.log(path1)
+
+            const script = require(path1);
+            console.log(script);
             // script(`${{ steps.latest_version.outputs.latest_tag }}`);
