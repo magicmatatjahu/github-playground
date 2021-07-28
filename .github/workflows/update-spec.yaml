@@ -43,5 +43,5 @@ jobs:
             fs.readdirSync('./spec/.github').forEach(file => {
               console.log(file);
             });
-            const script = require('./spec/.github/scripts/remove-toc.js');
+            const script = __original_require__('./spec/.github/scripts/remove-toc.js');
             // script(`${{ steps.latest_version.outputs.latest_tag }}`);
