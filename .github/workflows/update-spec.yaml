@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - 'master'
-    paths:
-      - 'spec/asyncapi.md'
 
 jobs:
   Make-PR:
@@ -38,5 +36,6 @@ jobs:
         with:
           # require needs relative path to the script (relative to the current working directory)
           script: |
-            const script = require('./spec/.github/scripts/remove-toc.js');
-            script(`${{ steps.latest_version.outputs.latest_tag }}`);
+            console.log(process.cwd());
+            // const script = require('./spec/.github/scripts/remove-toc.js');
+            // script(`${{ steps.latest_version.outputs.latest_tag }}`);
