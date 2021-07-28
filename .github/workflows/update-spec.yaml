@@ -23,7 +23,6 @@ jobs:
         with:
           repository: asyncapi/website
           path: website
-          token: ${{ env.GITHUB_TOKEN }}
       - name: Get latest release
         id: latest_version
         uses: abatilo/release-info-action@v1.3.0
