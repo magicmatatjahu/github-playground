@@ -39,9 +39,9 @@ jobs:
             const fs = require('fs');
             const path = require('path');
 
-            const path1 = path.resolve(process.cwd(), './spec/.github/scripts/remove-toc');
-            console.log(path1)
+            const scriptPath = path.resolve(process.cwd(), './spec/.github/scripts/remove-toc');
+            console.log(scriptPath)
 
-            const script = require(path1);
+            const script = require('./spec/.github/scripts/remove-toc');
             console.log(script);
             // script(`${{ steps.latest_version.outputs.latest_tag }}`);
