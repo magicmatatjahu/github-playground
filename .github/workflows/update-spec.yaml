@@ -32,14 +32,11 @@ jobs:
         run: |
           cp ../spec/spec/asyncapi.md ./pages/docs/specifications/${{ steps.latest_version.outputs.latest_tag }}.md
       - name: Remove Table of Contents from Spec
-        uses: actions/github-script@v3
+        uses: actions/github-script@v4
         with:
           # require needs relative path to the script (relative to the current working directory)
           script: |
-            const fs = require('fs');
-            const path = require('path');
-            const scriptPath = path.resolve(process.cwd(), './spec/.github/scripts/remove-toc');
-            const script = require(scriptPath);
+            const script = require('./spec/.github/scripts/remove-toc');
             script(`${{ steps.latest_version.outputs.latest_tag }}`);
             const specFile = fs.readFileSync(`./website/pages/docs/specifications/${{ steps.latest_version.outputs.latest_tag }}.md`);
             console.log(specFile.toString()); 
